@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Lab | Shane Sahatoo</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="lab-page">
+
+<div id="particles" class="particles"></div>
+<div class="star-sky"></div>
+
+<div class="background-glow background-glow-one"></div>
+<div class="background-glow background-glow-two"></div>
+
+
+<main class="lab-shell">
+
+  <!-- Navigation -->
+
+  <nav class="resume-nav">
+
+    <a href="../index.html" class="back-link">
+      ← Home
+    </a>
+
+    <div class="resume-nav-actions">
+
+      <a href="../resume.html" class="nav-link">
+        Resume
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- Header -->
+
+  <header class="lab-header">
+
+    <p class="eyebrow">
+      THE AUTOMATION LAB
+    </p>
+
+    <h1 class="lab-title">
+      See Playwright before your eyes.
+    </h1>
+
+    <p class="lab-description">
+      In this demonstration we have a home built login
+      page and pre-built automation with Playwright to verify
+      it is working as intended. Run the test suite in the test runner window
+      to get a first-hand experience of what it is like to be a Test Engineer!
+    </p>
+
+  </header>
+
+
+  <!-- Lab Category -->
+
+  <section class="lab-section">
+
+    <div class="lab-section-heading">
+
+      <div>
+        <p class="lab-label">
+          FEATURED EXPERIMENT
+        </p>
+
+        <h2>
+          Browser Automation
+        </h2>
+      </div>
+
+      <span class="lab-status">
+                    Playwright Demo
+                </span>
+
+    </div>
+
+
+    <!-- Main Demo -->
+
+    <div class="automation-demo">
+
+
+      <!-- Mini Application -->
+
+      <div class="demo-window">
+
+        <div class="window-toolbar">
+
+          <div class="window-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="window-address">
+            Demo Login Application
+          </div>
+
+        </div>
+
+
+        <div class="demo-app">
+
+          <div id="loginScreen" class="login-screen">
+
+            <p class="demo-app-label">
+              AUTOMATION DEMO
+            </p>
+
+            <h3>
+              Welcome back
+            </h3>
+
+            <p class="demo-subtext">
+              Sign in to continue.
+            </p>
+
+            <div
+                    id="loginError"
+                    class="login-error hidden"
+                    role="alert"
+            ></div>
+
+            <div class="demo-form">
+
+              <label for="demoUsername">
+                Username
+              </label>
+
+              <input
+                      id="demoUsername"
+                      type="text"
+                      autocomplete="off"
+              >
+
+              <label for="demoPassword">
+                Password
+              </label>
+
+              <input
+                      id="demoPassword"
+                      type="password"
+                      autocomplete="off"
+              >
+
+              <button
+                      id="demoLoginButton"
+                      type="button"
+                      class="demo-login-button"
+              >
+                Sign In
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- Success screen -->
+
+          <div
+                  id="dashboardScreen"
+                  class="dashboard-screen hidden"
+          >
+
+            <div class="success-icon">
+              ✓
+            </div>
+
+            <h3>
+              Login successful
+            </h3>
+
+            <p>
+              Automation reached the expected dashboard.
+            </p>
+
+            <button
+                    id="demoLogoutButton"
+                    type="button"
+                    class="demo-logout-button"
+            >
+              Sign Out
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Test Runner -->
+
+      <div class="test-runner">
+
+        <div class="runner-header">
+
+          <div>
+
+            <p class="runner-label">
+              TEST RUNNER
+            </p>
+
+            <h3>
+              Login.spec.js
+            </h3>
+
+          </div>
+
+
+          <span
+                  id="testStatus"
+                  class="test-status idle"
+          >
+                            READY
+                        </span>
+
+        </div>
+
+
+        <div
+                id="testConsole"
+                class="test-console"
+                aria-live="polite"
+        >
+
+          <div class="console-line console-muted">
+            $ ready to execute test
+          </div>
+
+        </div>
+
+
+        <div class="runner-actions">
+
+          <button
+                  id="runSuiteButton"
+                  class="run-test-button"
+                  type="button"
+          >
+            ▶ Run Test Suite
+          </button>
+
+          <button
+                  id="downloadReportButton"
+                  class="reset-test-button"
+                  type="button"
+                  disabled
+          >
+            Download Report
+          </button>
+
+          <button
+                  id="resetTestButton"
+                  class="reset-test-button"
+                  type="button"
+          >
+            Reset
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Code Preview -->
+
+    <div class="test-explorer">
+
+      <div class="test-explorer-header">
+
+        <div>
+          <p class="lab-label">TEST DESIGN</p>
+          <h2>Test Cases</h2>
+        </div>
+
+        <p class="explorer-description">
+          Select a test case to inspect the scenario,
+          test steps or automation code.
+        </p>
+
+      </div>
+
+
+      <div class="test-explorer-layout">
+
+        <!-- Test Case List -->
+
+        <div class="test-case-list">
+
+          <button
+                  class="test-case-item active"
+                  type="button"
+                  data-test="successfulLogin"
+          >
+            <span class="test-case-status">✓</span>
+
+            <span>
+                    <strong>Successful Login</strong>
+                    <small>Positive authentication scenario</small>
+                </span>
+          </button>
+
+
+          <button
+                  class="test-case-item"
+                  type="button"
+                  data-test="invalidPassword"
+          >
+            <span class="test-case-status">✓</span>
+
+            <span>
+                    <strong>Invalid Password Rejected</strong>
+                    <small>Negative authentication scenario</small>
+                </span>
+          </button>
+
+
+          <button
+                  class="test-case-item"
+                  type="button"
+                  data-test="requiredFields"
+          >
+            <span class="test-case-status">✓</span>
+
+            <span>
+                    <strong>Required Fields Validated</strong>
+                    <small>Form validation scenario</small>
+                </span>
+          </button>
+
+
+          <button
+                  class="test-case-item"
+                  type="button"
+                  data-test="logout"
+          >
+            <span class="test-case-status">✓</span>
+
+            <span>
+                    <strong>User Can Logout</strong>
+                    <small>Session termination scenario</small>
+                </span>
+          </button>
+
+        </div>
+
+
+        <!-- Test Details -->
+
+        <div class="test-detail-panel">
+
+          <div class="test-detail-heading">
+
+            <div>
+              <p class="lab-label">
+                SELECTED TEST
+              </p>
+
+              <h3 id="selectedTestTitle">
+                Successful Login
+              </h3>
+            </div>
+
+            <span
+                    id="selectedTestType"
+                    class="test-type"
+            >
+                    Positive
+                </span>
+
+          </div>
+
+
+          <p
+                  id="selectedTestDescription"
+                  class="test-description"
+          >
+            Verify that a valid user can successfully
+            authenticate and reach the application dashboard.
+          </p>
+
+
+          <!-- View Switcher -->
+
+          <div class="test-view-tabs">
+
+            <button
+                    id="stepsTab"
+                    class="test-view-tab active"
+                    type="button"
+            >
+              Test Steps
+            </button>
+
+            <button
+                    id="codeTab"
+                    class="test-view-tab"
+                    type="button"
+            >
+              Automation Code
+            </button>
+
+          </div>
+
+
+          <!-- English Steps -->
+
+          <div
+                  id="testStepsView"
+                  class="test-view"
+          >
+
+            <ol
+                    id="testStepsList"
+                    class="test-steps-list"
+            >
+            </ol>
+
+          </div>
+
+
+          <!-- Code -->
+
+          <div
+                  id="testCodeView"
+                  class="test-view hidden"
+          >
+
+            <div class="code-preview test-code-preview">
+
+              <div class="code-header">
+
+                        <span id="codeFilename">
+                            login.spec.js
+                        </span>
+
+                <span>
+                            Playwright
+                        </span>
+
+              </div>
+
+              <pre><code id="selectedTestCode"></code></pre>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <footer class="resume-footer">
+
+    <p>Shane Sahatoo</p>
+
+    <span></span>
+
+    <p>The Automation Lab</p>
+
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
+<script src="../script.js"></script>
+
+</body>
+</html>

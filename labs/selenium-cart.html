@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Selenium Cart Automation | Shane Sahatoo</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="lab-page">
+
+<div id="particles" class="particles"></div>
+<div class="star-sky"></div>
+
+<div class="background-glow background-glow-one"></div>
+<div class="background-glow background-glow-two"></div>
+
+<main class="lab-shell">
+
+  <!-- NAVIGATION -->
+
+  <nav class="resume-nav">
+
+    <a href="../lab.html" class="back-link">
+      ← The Lab
+    </a>
+
+    <div class="resume-nav-actions">
+
+      <a href="../resume.html" class="nav-link">
+        Resume
+      </a>
+
+      <a href="playwright-login.html" class="nav-link">
+        Playwright Demo
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HEADER -->
+
+  <header class="lab-header">
+
+    <p class="eyebrow">
+      SELENIUM • JAVA
+    </p>
+
+    <h1 class="lab-title">
+      See Selenium live.
+    </h1>
+
+    <p class="lab-description">
+      An interactive Selenium automation suite validating
+      product selection, shopping cart state, quantity and pricing.
+      Click on run test suite to experience Selenium in action live!
+    </p>
+
+  </header>
+
+
+  <!-- DEMO -->
+
+  <section class="lab-section">
+
+    <div class="lab-section-heading">
+
+      <div>
+
+        <p class="lab-label">
+          INTERACTIVE TEST
+        </p>
+
+        <h2>
+          E-Commerce Cart Suite
+        </h2>
+
+      </div>
+
+      <span class="lab-status">
+                Selenium + Java
+            </span>
+
+    </div>
+
+
+    <div class="automation-demo">
+
+      <!-- DEMO STORE -->
+
+      <div class="demo-window">
+
+        <div class="window-toolbar">
+
+          <div class="window-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="window-address">
+            shop.shane.dev/products
+          </div>
+
+        </div>
+
+
+        <div class="selenium-store">
+
+          <!-- SHOP HEADER -->
+
+          <div class="store-header">
+
+            <div>
+
+                            <span class="store-logo">
+                                DEMO STORE
+                            </span>
+
+              <p>
+                Automation sandbox
+              </p>
+
+            </div>
+
+
+            <button
+                    id="cartButton"
+                    class="cart-button"
+                    type="button"
+            >
+              Cart
+
+              <span id="cartCount">
+                                0
+                            </span>
+            </button>
+
+          </div>
+
+
+          <!-- PRODUCT -->
+
+          <div id="productGrid" class="product-grid">
+
+            <div
+                    class="product-card"
+                    data-product-id="headphones"
+                    data-product-name="Wireless Headphones"
+                    data-product-price="129.99"
+            >
+
+              <div class="product-image">
+                <div class="product-icon">🎧</div>
+              </div>
+
+              <div class="product-info">
+
+                <p class="product-category">AUDIO</p>
+
+                <h3>Wireless Headphones</h3>
+
+                <p class="product-description">
+                  Noise-isolating wireless headphones
+                  built for everyday listening.
+                </p>
+
+                <div class="product-bottom">
+
+                <span class="product-price">
+                    $129.99
+                </span>
+
+                  <button
+                          class="demo-login-button add-product-button"
+                          type="button"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+                    class="product-card"
+                    data-product-id="keyboard"
+                    data-product-name="Mechanical Keyboard"
+                    data-product-price="89.99"
+            >
+
+              <div class="product-image">
+                <div class="product-icon">⌨️</div>
+              </div>
+
+              <div class="product-info">
+
+                <p class="product-category">ACCESSORIES</p>
+
+                <h3>Mechanical Keyboard</h3>
+
+                <p class="product-description">
+                  Compact mechanical keyboard
+                  designed for work and development.
+                </p>
+
+                <div class="product-bottom">
+
+                <span class="product-price">
+                    $89.99
+                </span>
+
+                  <button
+                          class="demo-login-button add-product-button"
+                          type="button"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div
+                    class="product-card"
+                    data-product-id="mouse"
+                    data-product-name="Wireless Mouse"
+                    data-product-price="49.99"
+            >
+
+              <div class="product-image">
+                <div class="product-icon">🖱️</div>
+              </div>
+
+              <div class="product-info">
+
+                <p class="product-category">ACCESSORIES</p>
+
+                <h3>Wireless Mouse</h3>
+
+                <p class="product-description">
+                  Lightweight wireless mouse with
+                  programmable controls.
+                </p>
+
+                <div class="product-bottom">
+
+                <span class="product-price">
+                    $49.99
+                </span>
+
+                  <button
+                          class="demo-login-button add-product-button"
+                          type="button"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CART -->
+
+          <div
+                  id="cartPanel"
+                  class="cart-panel hidden"
+          >
+
+            <div class="cart-panel-header">
+
+              <div>
+
+                <p class="lab-label">
+                  SHOPPING CART
+                </p>
+
+                <h3>
+                  Your Cart
+                </h3>
+
+              </div>
+
+              <button
+                      id="closeCartButton"
+                      class="cart-close-button"
+                      type="button"
+              >
+                ×
+              </button>
+
+            </div>
+
+
+            <div
+                    id="emptyCart"
+                    class="empty-cart"
+            >
+              Your cart is empty.
+            </div>
+
+
+            <div
+                    id="cartContents"
+                    class="cart-contents hidden"
+            >
+
+              <div id="cartItems"></div>
+
+              <div class="cart-total">
+
+                <span>Total</span>
+
+                <strong id="cartTotal">
+                  $0.00
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TEST RUNNER -->
+
+      <div class="test-runner">
+
+        <div class="runner-header">
+
+          <div>
+
+            <p class="runner-label">
+              SELENIUM TEST RUNNER
+            </p>
+
+            <h3>
+              CartTests.java
+            </h3>
+
+          </div>
+
+
+          <span
+                  id="seleniumStatus"
+                  class="test-status idle"
+          >
+                        READY
+                    </span>
+
+        </div>
+
+
+        <div
+                id="seleniumConsole"
+                class="test-console"
+                aria-live="polite"
+        >
+
+          <div class="console-line console-muted">
+            $ ready to execute Selenium suite
+          </div>
+
+        </div>
+
+
+        <div class="runner-actions">
+
+          <button
+                  id="runSeleniumSuiteButton"
+                  class="run-test-button"
+                  type="button"
+          >
+            ▶ Run Selenium Suite
+          </button>
+
+          <button
+                  id="downloadSeleniumReportButton"
+                  class="reset-test-button"
+                  type="button"
+                  disabled
+          >
+            Download Report
+          </button>
+
+          <button
+                  id="resetSeleniumButton"
+                  class="reset-test-button"
+                  type="button"
+          >
+            Reset
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEST CASE EXPLORER -->
+
+  <section class="lab-section">
+
+    <div class="test-explorer">
+
+      <div class="test-explorer-header">
+
+        <div>
+
+          <p class="lab-label">
+            TEST DESIGN
+          </p>
+
+          <h2>
+            Selenium Test Cases
+          </h2>
+
+        </div>
+
+        <p class="explorer-description">
+          Select a scenario to view its functional test steps
+          or the corresponding Selenium + Java automation.
+        </p>
+
+      </div>
+
+
+      <div class="test-explorer-layout">
+
+        <!-- TEST LIST -->
+
+        <div class="test-case-list">
+
+          <button
+                  class="selenium-test-case-item test-case-item active"
+                  type="button"
+                  data-selenium-test="addProduct"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+
+                            <strong>
+                                Add Product to Cart
+                            </strong>
+
+                            <small>
+                                Positive shopping flow
+                            </small>
+
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="selenium-test-case-item test-case-item"
+                  type="button"
+                  data-selenium-test="correctProduct"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+
+                            <strong>
+                                Correct Product Added
+                            </strong>
+
+                            <small>
+                                Product identity validation
+                            </small>
+
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="selenium-test-case-item test-case-item"
+                  type="button"
+                  data-selenium-test="quantity"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+
+                            <strong>
+                                Cart Quantity Updated
+                            </strong>
+
+                            <small>
+                                Cart state validation
+                            </small>
+
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="selenium-test-case-item test-case-item"
+                  type="button"
+                  data-selenium-test="total"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+
+                            <strong>
+                                Cart Total Calculated
+                            </strong>
+
+                            <small>
+                                Pricing validation
+                            </small>
+
+                        </span>
+
+          </button>
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="test-detail-panel">
+
+          <div class="test-detail-heading">
+
+            <div>
+
+              <p class="lab-label">
+                SELECTED TEST
+              </p>
+
+              <h3 id="seleniumSelectedTitle">
+                Add Product to Cart
+              </h3>
+
+            </div>
+
+
+            <span
+                    id="seleniumSelectedType"
+                    class="test-type"
+            >
+                            Positive
+                        </span>
+
+          </div>
+
+
+          <p
+                  id="seleniumSelectedDescription"
+                  class="test-description"
+          ></p>
+
+
+          <div class="test-view-tabs">
+
+            <button
+                    id="seleniumStepsTab"
+                    class="test-view-tab active"
+                    type="button"
+            >
+              Test Steps
+            </button>
+
+            <button
+                    id="seleniumCodeTab"
+                    class="test-view-tab"
+                    type="button"
+            >
+              Selenium Code
+            </button>
+
+          </div>
+
+
+          <div
+                  id="seleniumStepsView"
+                  class="test-view"
+          >
+
+            <ol
+                    id="seleniumStepsList"
+                    class="test-steps-list"
+            ></ol>
+
+          </div>
+
+
+          <div
+                  id="seleniumCodeView"
+                  class="test-view hidden"
+          >
+
+            <div class="code-preview test-code-preview">
+
+              <div class="code-header">
+
+                                <span>
+                                    CartTests.java
+                                </span>
+
+                <span>
+                                    Selenium + Java
+                                </span>
+
+              </div>
+
+              <pre><code id="seleniumSelectedCode"></code></pre>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer class="resume-footer">
+
+    <p>Shane Sahatoo</p>
+
+    <span></span>
+
+    <p>Selenium Automation Lab</p>
+
+  </footer>
+
+</main>
+
+
+<!-- PDF library -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
+
+<!-- Shared site animations -->
+<script src="../script.js"></script>
+<script src="./selenium-cart.js"></script>
+
+<!-- Selenium project -->
+<script src="../selenium-cart.js"></script>
+
+</body>
+</html>
