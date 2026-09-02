@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>API Testing Lab | Shane Sahatoo</title>
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="lab-page">
+
+<div id="particles" class="particles"></div>
+<div class="star-sky"></div>
+
+<div class="background-glow background-glow-one"></div>
+<div class="background-glow background-glow-two"></div>
+
+<main class="lab-shell">
+
+  <nav class="resume-nav">
+
+    <a href="../lab.html" class="back-link">
+      ← The Lab
+    </a>
+
+    <div class="resume-nav-actions">
+
+      <a href="../resume.html" class="nav-link">
+        Resume
+      </a>
+
+      <a href="playwright-login.html" class="nav-link">
+        Playwright
+      </a>
+
+      <a href="selenium-cart.html" class="nav-link">
+        Selenium
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <header class="lab-header">
+
+    <p class="eyebrow">
+      REST API • JAVA
+    </p>
+
+    <h1 class="lab-title">
+      Visualizing the API.
+    </h1>
+
+    <p class="lab-description">
+      Interactive automated REST API test scenarios covering
+      authentication, validation, response contracts,
+      status codes and business rules built with REST Assured. Try it out for yourself!
+    </p>
+
+  </header>
+
+
+  <section class="lab-section">
+
+    <div class="lab-section-heading">
+
+      <div>
+
+        <p class="lab-label">
+          INTERACTIVE API TEST
+        </p>
+
+        <h2>
+          Authentication & Orders API
+        </h2>
+
+      </div>
+
+      <span class="lab-status">
+                REST Assured Style
+            </span>
+
+    </div>
+
+
+    <div class="api-demo-grid">
+
+
+      <!-- REQUEST BUILDER -->
+
+      <div class="api-panel">
+
+        <div class="api-panel-header">
+
+          <div>
+
+            <p class="runner-label">
+              REQUEST
+            </p>
+
+            <h3>
+              API Client
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div class="api-request-line">
+
+          <select id="apiMethod">
+            <option value="POST">POST</option>
+            <option value="GET">GET</option>
+          </select>
+
+          <select id="apiEndpoint">
+
+            <option value="login">
+              /api/login
+            </option>
+
+            <option value="user">
+              /api/users/42
+            </option>
+
+            <option value="order">
+              /api/orders
+            </option>
+
+            <option value="orderLookup">
+              /api/orders/123
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="api-field-group">
+
+          <label for="apiRequestBody">
+            Request Body
+          </label>
+
+          <textarea
+                  id="apiRequestBody"
+                  spellcheck="false"
+          ></textarea>
+
+        </div>
+
+
+        <button
+                id="sendApiRequestButton"
+                class="run-test-button api-send-button"
+                type="button"
+        >
+          ▶ Send Request
+        </button>
+
+      </div>
+
+
+      <!-- RESPONSE -->
+
+      <div class="api-panel">
+
+        <div class="api-panel-header">
+
+          <div>
+
+            <p class="runner-label">
+              RESPONSE
+            </p>
+
+            <h3>
+              Server Response
+            </h3>
+
+          </div>
+
+
+          <span
+                  id="apiResponseStatus"
+                  class="api-response-status"
+          >
+                        —
+                    </span>
+
+        </div>
+
+
+        <div class="api-response-meta">
+
+                    <span>
+                        Time:
+                        <strong id="apiResponseTime">
+                            —
+                        </strong>
+                    </span>
+
+          <span>
+                        Content-Type:
+                        <strong id="apiContentType">
+                            —
+                        </strong>
+                    </span>
+
+        </div>
+
+
+        <pre class="api-response-body"><code id="apiResponseBody">{
+    "message": "Send a request to begin."
+}</code></pre>
+
+      </div>
+
+    </div>
+
+
+    <!-- TEST RUNNER -->
+
+    <div class="test-runner api-test-runner">
+
+      <div class="runner-header">
+
+        <div>
+
+          <p class="runner-label">
+            API TEST RUNNER
+          </p>
+
+          <h3>
+            ApiTests.java
+          </h3>
+
+        </div>
+
+
+        <span
+                id="apiTestStatus"
+                class="test-status idle"
+        >
+                    READY
+                </span>
+
+      </div>
+
+
+      <div
+              id="apiTestConsole"
+              class="test-console"
+              aria-live="polite"
+      >
+
+        <div class="console-line console-muted">
+          $ ready to execute API suite
+        </div>
+
+      </div>
+
+
+      <div class="runner-actions">
+
+        <button
+                id="runApiSuiteButton"
+                class="run-test-button"
+                type="button"
+        >
+          ▶ Run API Suite
+        </button>
+
+        <button
+                id="downloadApiReportButton"
+                class="reset-test-button"
+                type="button"
+                disabled
+        >
+          Download Report
+        </button>
+
+        <button
+                id="resetApiButton"
+                class="reset-test-button"
+                type="button"
+        >
+          Reset
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEST CASE EXPLORER -->
+
+  <section class="lab-section">
+
+    <div class="test-explorer">
+
+      <div class="test-explorer-header">
+
+        <div>
+
+          <p class="lab-label">
+            TEST DESIGN
+          </p>
+
+          <h2>
+            API Test Cases
+          </h2>
+
+        </div>
+
+        <p class="explorer-description">
+          Select a scenario to view the functional validation
+          steps or REST Assured implementation.
+        </p>
+
+      </div>
+
+
+      <div class="test-explorer-layout">
+
+        <div class="test-case-list">
+
+          <button
+                  class="api-test-case-item test-case-item active"
+                  type="button"
+                  data-api-test="successfulLogin"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+                            <strong>
+                                Successful Login API
+                            </strong>
+
+                            <small>
+                                Status and token validation
+                            </small>
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="api-test-case-item test-case-item"
+                  type="button"
+                  data-api-test="invalidLogin"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+                            <strong>
+                                Invalid Credentials Return 401
+                            </strong>
+
+                            <small>
+                                Negative authentication
+                            </small>
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="api-test-case-item test-case-item"
+                  type="button"
+                  data-api-test="requiredFields"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+                            <strong>
+                                Missing Fields Return 400
+                            </strong>
+
+                            <small>
+                                Request validation
+                            </small>
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="api-test-case-item test-case-item"
+                  type="button"
+                  data-api-test="createOrder"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+                            <strong>
+                                Create Order Returns 201
+                            </strong>
+
+                            <small>
+                                Resource creation
+                            </small>
+                        </span>
+
+          </button>
+
+
+          <button
+                  class="api-test-case-item test-case-item"
+                  type="button"
+                  data-api-test="schema"
+          >
+
+                        <span class="test-case-status">
+                            ✓
+                        </span>
+
+            <span>
+                            <strong>
+                                Response Schema Validated
+                            </strong>
+
+                            <small>
+                                Contract validation
+                            </small>
+                        </span>
+
+          </button>
+
+        </div>
+
+
+        <div class="test-detail-panel">
+
+          <div class="test-detail-heading">
+
+            <div>
+
+              <p class="lab-label">
+                SELECTED TEST
+              </p>
+
+              <h3 id="apiSelectedTitle">
+                Successful Login API
+              </h3>
+
+            </div>
+
+
+            <span
+                    id="apiSelectedType"
+                    class="test-type"
+            >
+                            Positive
+                        </span>
+
+          </div>
+
+
+          <p
+                  id="apiSelectedDescription"
+                  class="test-description"
+          ></p>
+
+
+          <div class="test-view-tabs">
+
+            <button
+                    id="apiStepsTab"
+                    class="test-view-tab active"
+                    type="button"
+            >
+              Test Steps
+            </button>
+
+            <button
+                    id="apiCodeTab"
+                    class="test-view-tab"
+                    type="button"
+            >
+              REST Assured Code
+            </button>
+
+          </div>
+
+
+          <div
+                  id="apiStepsView"
+                  class="test-view"
+          >
+
+            <ol
+                    id="apiStepsList"
+                    class="test-steps-list"
+            ></ol>
+
+          </div>
+
+
+          <div
+                  id="apiCodeView"
+                  class="test-view hidden"
+          >
+
+            <div class="code-preview test-code-preview">
+
+              <div class="code-header">
+
+                                <span>
+                                    ApiTests.java
+                                </span>
+
+                <span>
+                                    REST Assured + Java
+                                </span>
+
+              </div>
+
+              <pre><code id="apiSelectedCode"></code></pre>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer class="resume-footer">
+
+    <p>Shane Sahatoo</p>
+
+    <span></span>
+
+    <p>API Testing Lab</p>
+
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.2.1/jspdf.umd.min.js"></script>
+<script src="../script.js"></script>
+<script src="./api-testing.js"></script>
+
+</body>
+</html>

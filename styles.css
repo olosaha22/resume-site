@@ -2613,3 +2613,251 @@ a.lab-project-card:hover .project-arrow {
     }
 
 }
+
+/* =========================================================
+   API TESTING LAB
+========================================================= */
+
+.api-demo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+}
+
+
+.api-panel {
+    min-height: 390px;
+
+    padding: 22px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.018);
+}
+
+
+.api-panel-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.api-panel-header h3 {
+    font-size: 16px;
+
+    font-weight: 550;
+}
+
+
+/* Request */
+
+.api-request-line {
+    display: grid;
+
+    grid-template-columns: 110px 1fr;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+}
+
+
+.api-request-line select {
+    min-height: 44px;
+
+    padding: 0 11px;
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    border-radius: 8px;
+
+    background: #0c0f13;
+
+    color: #c4cbd4;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+
+.api-field-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.api-field-group label {
+    color: #747f8c;
+
+    font-size: 11px;
+}
+
+
+.api-field-group textarea {
+    width: 100%;
+
+    min-height: 190px;
+
+    resize: vertical;
+
+    padding: 15px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius: 9px;
+
+    background: #080a0c;
+
+    color: #aeb7c1;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    outline: none;
+}
+
+
+.api-send-button {
+    width: 100%;
+
+    margin-top: 16px;
+}
+
+
+/* Response */
+
+.api-response-status {
+    padding: 6px 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    color: #7c8794;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.api-response-status.success {
+    background:
+        rgba(70,200,130,0.1);
+
+    color: #6bd398;
+}
+
+
+.api-response-status.warning {
+    background:
+        rgba(230,165,70,0.1);
+
+    color: #dda75e;
+}
+
+
+.api-response-status.error {
+    background:
+        rgba(220,80,80,0.1);
+
+    color: #da8585;
+}
+
+
+.api-response-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+
+    color: #697582;
+
+    font-size: 11px;
+}
+
+
+.api-response-meta strong {
+    color: #a3adb8;
+
+    font-weight: 500;
+}
+
+
+.api-response-body {
+    min-height: 250px;
+
+    margin: 0;
+
+    padding: 18px;
+
+    overflow-x: auto;
+
+    border:
+        1px solid rgba(255,255,255,0.06);
+
+    border-radius: 9px;
+
+    background: #080a0c;
+}
+
+
+.api-response-body code {
+    color: #abb5c0;
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.api-test-runner {
+    min-height: auto;
+}
+
+
+@media (max-width: 800px) {
+
+    .api-demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .api-request-line {
+        grid-template-columns: 1fr;
+    }
+
+}
