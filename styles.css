@@ -2861,3 +2861,404 @@ a.lab-project-card:hover .project-arrow {
     }
 
 }
+
+/* =========================================================
+   EXPANDABLE RESUME EXPERIENCE
+========================================================= */
+
+.resume-expandable {
+    border-top: 1px solid rgba(255, 255, 255, 0.075);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.resume-expandable:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+
+.resume-expandable:hover {
+    background:
+        rgba(255, 255, 255, 0.012);
+}
+
+
+.experience-summary {
+    padding: 26px 4px;
+
+    cursor: pointer;
+
+    list-style: none;
+}
+
+
+.experience-summary::-webkit-details-marker {
+    display: none;
+}
+
+
+.experience-summary::marker {
+    display: none;
+}
+
+
+.experience-summary-main {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 30px;
+}
+
+
+.experience-company {
+    margin: 0 0 5px;
+
+    color: #7e8996;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+
+.experience-summary h3 {
+    margin: 0;
+
+    color: #e5e8ec;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    line-height: 1.35;
+}
+
+
+.experience-date {
+    margin: 7px 0 0;
+
+    color: #68727e;
+
+    font-size: 11px;
+}
+
+
+.experience-preview {
+    max-width: 790px;
+
+    margin: 17px 0 0;
+
+    color: #929ca7;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+.expand-indicator {
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 50%;
+
+    color: #9ca6b1;
+
+    font-size: 0;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.expand-indicator::before {
+    content: "+";
+
+    display: block;
+
+    font-size: 20px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    transform: translateY(-1px);
+}
+
+.resume-expandable[open] .expand-indicator {
+    transform: rotate(45deg);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+
+.resume-expandable:hover .expand-indicator {
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+.resume-expandable[open] .expand-indicator {
+    transform:
+        rotate(45deg);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+
+.experience-expanded {
+    max-width: 850px;
+
+    padding:
+        0 6px 30px;
+
+    animation:
+        resumeExpand 0.3s ease;
+}
+
+
+.experience-expanded ul {
+    margin: 0;
+
+    padding-left: 21px;
+}
+
+
+.experience-expanded li {
+    margin-bottom: 11px;
+
+    padding-left: 5px;
+
+    color: #a0a9b3;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+.experience-expanded li::marker {
+    color: #687582;
+}
+
+
+@keyframes resumeExpand {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .experience-summary {
+        padding:
+            22px 0;
+    }
+
+
+    .experience-summary-main {
+        gap: 15px;
+    }
+
+
+    .experience-summary h3 {
+        font-size: 17px;
+    }
+
+
+    .experience-preview {
+        font-size: 12px;
+
+        line-height: 1.65;
+    }
+
+
+    .expand-indicator {
+        width: 31px;
+
+        height: 31px;
+
+        font-size: 18px;
+    }
+
+
+    .experience-expanded {
+        padding-bottom: 25px;
+    }
+
+
+    .experience-expanded li {
+        font-size: 12px;
+    }
+
+}
+
+.resume-section-heading {
+    margin-top: -15px;
+    margin-bottom: 34px;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 17px;
+}
+
+.experience-tags span {
+    padding:
+        6px 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #87929e;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.02em;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.resume-expandable:hover .experience-tags span {
+    border-color:
+        rgba(255, 255, 255, 0.1);
+
+    color: #9ba5b0;
+}
+
+@media (max-width: 650px) {
+
+    .experience-tags {
+        gap: 5px;
+        margin-top: 14px;
+    }
+
+    .experience-tags span {
+        padding:
+            5px 7px;
+
+        font-size: 9px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .skills-grid,
+    .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .skill-card,
+    .credential-card {
+        padding: 14px 16px;
+        border-radius: 10px;
+    }
+
+    .skill-card h3,
+    .credential-card h3 {
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .skill-card p,
+    .credential-card p {
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    .resume-section {
+        margin-bottom: 48px;
+    }
+
+    .resume-section-heading {
+        margin-bottom: 22px;
+    }
+
+    .resume-section-heading h2 {
+        font-size: 22px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .education-card {
+        padding: 14px 16px;
+        min-height: auto;
+    }
+
+    .education-card h3 {
+        font-size: 14px;
+    }
+
+    .education-card p {
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .skill-card,
+    .credential-card,
+    .education-card {
+        min-height: 0;
+        height: auto;
+    }
+
+}
