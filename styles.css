@@ -3404,3 +3404,21 @@ a.lab-project-card:hover .project-arrow {
     }
 
 }
+
+@media (max-width: 650px) {
+
+    .campfire-scene {
+        display: block;
+        background-size: cover;
+        background-position: 58% bottom;
+        background-repeat: no-repeat;
+        opacity: 0.42;
+    }
+
+    .campfire-scene::after {
+        width: 180px;
+        height: 130px;
+        bottom: 4%;
+    }
+
+}
