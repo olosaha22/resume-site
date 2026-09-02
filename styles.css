@@ -3275,7 +3275,7 @@ a.lab-project-card:hover .project-arrow {
             rgba(5, 8, 12, 0.15),
             rgba(5, 8, 12, 0.35)
         ),
-        url(".idea/images/campfire.png");
+        url("images/campfire.png");
 
     background-size: cover;
 
