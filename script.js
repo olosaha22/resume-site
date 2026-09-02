@@ -1481,3 +1481,44 @@ if (downloadReportButton) {
     );
 
 }
+
+const emberContainer =
+    document.querySelector(".campfire-embers");
+
+if (emberContainer) {
+
+    for (let i = 0; i < 18; i++) {
+
+        const ember =
+            document.createElement("span");
+
+        ember.className =
+            "campfire-ember";
+
+
+        ember.style.left =
+            `${47 + Math.random() * 6}%`;
+
+
+        ember.style.bottom =
+            `${5 + Math.random() * 5}%`;
+
+
+        ember.style.animationDelay =
+            `${Math.random() * 7}s`;
+
+
+        ember.style.animationDuration =
+            `${5 + Math.random() * 5}s`;
+
+
+        ember.style.opacity =
+            `${0.2 + Math.random() * 0.45}`;
+
+
+        emberContainer.appendChild(
+            ember
+        );
+    }
+
+}

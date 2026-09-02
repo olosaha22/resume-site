@@ -3262,3 +3262,145 @@ a.lab-project-card:hover .project-arrow {
     }
 
 }
+
+.campfire-scene {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        linear-gradient(
+            rgba(5, 8, 12, 0.15),
+            rgba(5, 8, 12, 0.35)
+        ),
+        url(".idea/images/campfire.png");
+
+    background-size: cover;
+
+    background-position:
+        center bottom;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.48;
+
+    pointer-events: none;
+}
+
+.campfire-scene::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 5%;
+
+    width: 240px;
+    height: 170px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 155, 70, 0.16),
+            rgba(255, 120, 50, 0.07) 45%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    animation:
+        fireGlow 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+@keyframes fireGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform:
+            translateX(-50%)
+            scale(0.96);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1.04);
+    }
+
+}
+
+.campfire-embers {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -2;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.campfire-ember {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 170, 90, 0.75);
+
+    box-shadow:
+        0 0 6px
+        rgba(255, 140, 60, 0.5);
+
+    animation:
+        emberRise linear infinite;
+}
+
+
+@keyframes emberRise {
+
+    0% {
+        transform:
+            translate(
+                0,
+                0
+            );
+
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.6;
+    }
+
+    70% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform:
+            translate(
+                25px,
+                -260px
+            );
+
+        opacity: 0;
+    }
+
+}
